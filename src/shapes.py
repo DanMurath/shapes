@@ -8,26 +8,23 @@
 """
 import math
 
-# user input for sizes
 class Input:
     def __init__(self):
         pass
     
+    # reuse method when getting args for shape sizes rather than inheritance
     @classmethod
     def get_size(self):
         return int(input("Enter size: "))
-
+    
     def ask_again(self):
-        self.again = input("would you like to continue? (y/n)\n")
-        return self.again
+        return input("would you like to continue? (y/n)\n")
 
     def get_shape(self):
-        self.shape = input("what shape? (cir, tri, sq, rec)\n")
-        return self.shape
+        return input("what shape? (cir, tri, sq, rec)\n")
 
     def get_algo(self):
-        self.algo = input("area or perim?\n")
-        return self.algo
+        return input("area or perim?\n")
 
 class Circle:
     def __init__(self):
@@ -110,32 +107,3 @@ class Rectangle:
         self.perim = self.perim_algo(Input.get_size(), Input.get_size())
         print("perimeter = ", self.perim)
         return self.perim
-
-# methods w instances of shape classes
-# simpler testing
-class Test:
-    def __init__(self):
-        pass
-
-    def test_cir(self):
-        print("___area of cir___")
-        self.cir = Circle()
-        self.cir.get_area()
-        self.cir.get_perim()
-
-    def test_tri(self):
-        print("___area of tri___")
-        self.tri = Triangle()
-        self.tri.get_area()
-
-    def test_sq(self):
-        print("___area of sq___")
-        self.sq = Square()
-        self.sq.get_area()
-        self.sq.get_perim()
-
-    def test_rec(self):
-        print("___area of rec___")
-        self.rec = Rectangle()
-        self.rec.get_area()
-        self.rec.get_perim()
